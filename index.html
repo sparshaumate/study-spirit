@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study Spirit</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #07110d;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            text-align: center;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 10px 22px;
+            border: 2px solid #63ff9b;
+            border-radius: 30px;
+            color: #63ff9b;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 55px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        h1 span {
+            color: #63ff9b;
+        }
+
+        .description {
+            color: #c8d3cc;
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto 35px;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: #10251b;
+            border: 1px solid #3d754f;
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 650px;
+            margin: auto;
+            box-shadow: 0 0 40px rgba(98, 255, 155, 0.08);
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        input,
+        select {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin: 14px 0;
+            border-radius: 12px;
+            border: 1px solid #5b8068;
+            background: #07110d;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #63ff9b;
+        }
+
+        input::placeholder {
+            color: #9daaa2;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 16px 28px;
+            border: none;
+            border-radius: 12px;
+            background: white;
+            color: #174a2b;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(99, 255, 155, 0.25);
+        }
+
+        .topic-box {
+            background: #0a1811;
+            border: 1px solid #416f50;
+            border-radius: 15px;
+            padding: 18px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .topic-box label {
+            display: block;
+            color: #63ff9b;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .topic-box input,
+        .topic-box select {
+            margin: 8px 0;
+        }
+
+        .session {
+            background: #0a1811;
+            border: 1px solid #416f50;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .session h3 {
+            color: #63ff9b;
+            margin-bottom: 10px;
+        }
+
+        .session p {
+            color: #d9e3dc;
+            margin: 7px 0;
+            line-height: 1.5;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .easy {
+            background: #164d2a;
+            color: #63ff9b;
+        }
+
+        .medium {
+            background: #514719;
+            color: #ffe66d;
+        }
+
+        .hard {
+            background: #542020;
+            color: #ff8c8c;
+        }
+
+        .plan-info {
+            color: #d5e0d8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .success {
+            color: #63ff9b;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #b7c7bc;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container" id="app">
+
+        <div class="tag">
+            AI STUDY EXPERIENCE
+        </div>
+
+        <h1>
+            STUDY <span>SPIRIT</span>
+        </h1>
+
+        <p class="description">
+            Turn your study goals into a smart plan.
+            Study Spirit helps you divide your topics
+            according to their difficulty.
+        </p>
+
+        <div class="card">
+
+            <div class="icon">
+                📚
+            </div>
+
+            <h2>
+                Ready to Build?
+            </h2>
+
+            <p class="plan-info">
+                Create your personalized study plan.
+            </p>
+
+            <button onclick="startStudy()">
+                START BUILDING →
+            </button>
+
+        </div>
+
+        <div class="footer">
+            BUILD • ADAPT • LEARN • GROW
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function startStudy() {
+
+            document.getElementById("app").innerHTML = `
+
+                <div class="tag">
+                    STUDY SPIRIT • BUILD
+                </div>
+
+                <h1>
+                    YOUR <span>STUDY</span> CHALLENGE
+                </h1>
+
+                <p class="description">
+                    Enter your subject, topics and available time.
+                </p>
+
+                <div class="card">
+
+                    <div class="icon">
+                        📚
+                    </div>
+
+                    <h2>
+                        Let's Build Your Plan
+                    </h2>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        placeholder="Enter your subject"
+                    >
+
+                    <input
+                        type="number"
+                        id="hours"
+                        placeholder="Available study hours"
+                        min="1"
+                    >
+
+                    <input
+                        type="number"
+                        id="topicCount"
+                        placeholder="How many topics?"
+                        min="1"
+                        max="10"
+                    >
+
+                    <button onclick="showTopics()">
+                        ADD TOPICS →
+                    </button>
+
+                    <div id="topicArea"></div>
+
+                </div>
+
+                <div class="footer">
+                    BUILD • ADAPT • LEARN • GROW
+                </div>
+
+            `;
+        }
+
+
+
+        function showTopics() {
+
+            const count =
+                Number(document.getElementById("topicCount").value);
+
+            if (count <= 0 || count > 10) {
+
+                alert("Please enter between 1 and 10 topics.");
+
+                return;
+            }
+
+
+            let topicHTML = `
+
+                <h2 style="margin-top:30px;">
+                    📖 Add Your Topics
+                </h2>
+
+            `;
+
+
+            for (let i = 1; i <= count; i++) {
+
+                topicHTML += `
+
+                    <div class="topic-box">
+
+                        <label>
+                            Topic ${i}
+                        </label>
+
+                        <input
+                            type="text"
+                            id="topic${i}"
+                            placeholder="Enter topic name"
+                        >
+
+                        <select id="difficulty${i}">
+
+                            <option value="easy">
+                                🟢 Easy
+                            </option>
+
+                            <option value="medium" selected>
+                                🟡 Medium
+                            </option>
+
+                            <option value="hard">
+                                🔴 Hard
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            topicHTML += `
+
+                <button onclick="createPlan()">
+                    CREATE MY SMART PLAN →
+                </button>
+
+            `;
+
+
+            document.getElementById("topicArea").innerHTML =
+                topicHTML;
+        }
+
+
+
+        function createPlan() {
+
+            const subject =
+                document.getElementById("subject").value.trim();
+
+            const hours =
+                Number(document.getElementById("hours").value);
+
+            const count =
+                Number(document.getElementById("topicCount").value);
+
+
+            if (subject === "" || hours <= 0) {
+
+                alert(
+                    "Please enter the subject and available hours."
+                );
+
+                return;
+            }
+
+
+            let topics = [];
+
+
+            for (let i = 1; i <= count; i++) {
+
+                const name =
+                    document.getElementById("topic" + i).value.trim();
+
+                const difficulty =
+                    document.getElementById("difficulty" + i).value;
+
+
+                if (name === "") {
+
+                    alert("Please enter Topic " + i);
+
+                    return;
+                }
+
+
+                topics.push({
+                    name: name,
+                    difficulty: difficulty
+                });
+
+            }
+
+
+            /*
+                Difficulty weights:
+
+                Easy   = 1
+                Medium = 2
+                Hard   = 3
+            */
+
+            let totalWeight = 0;
+
+
+            topics.forEach(topic => {
+
+                if (topic.difficulty === "easy") {
+                    topic.weight = 1;
+                }
+
+                else if (topic.difficulty === "medium") {
+                    topic.weight = 2;
+                }
+
+                else {
+                    topic.weight = 3;
+                }
+
+                totalWeight += topic.weight;
+
+            });
+
+
+            const totalMinutes = hours * 60;
+
+
+            let sessionsHTML = "";
+
+
+            topics.forEach((topic, index) => {
+
+                const minutes =
+                    Math.round(
+                        (topic.weight / totalWeight) *
+                        totalMinutes
+                    );
+
+
+                let difficultyText = "";
+
+                if (topic.difficulty === "easy") {
+                    difficultyText = "🟢 EASY";
+                }
+
+                else if (topic.difficulty === "medium") {
+                    difficultyText = "🟡 MEDIUM";
+                }
+
+                else {
+                    difficultyText = "🔴 HARD";
+                }
+
+
+                sessionsHTML += `
+
+                    <div class="session">
+
+                        <h3>
+                            📖 Session ${index + 1}
+                        </h3>
+
+                        <p>
+                            <strong>
+                                ${topic.name}
+                            </strong>
+                        </p>
+
+                        <p>
+                            <span class="difficulty ${topic.difficulty}">
+                                ${difficultyText}
+                            </span>
+                        </p>
+
+                        <p>
+                            ⏱️ Study Time:
+                            <strong>
+                                ${minutes} minutes
+                            </strong>
+                        </p>
+
+                        <p>
+                            Focus on this topic and
+                            practice questions.
+                        </p>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            document.getElementById("app").innerHTML = `
+
+                <div class="tag">
+                    STUDY SPIRIT • YOUR PLAN
+                </div>
+
+                <h1>
+                    YOUR <span>STUDY PLAN</span>
+                </h1>
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        ✨
+                    </div>
+
+                    <h2>
+                        ${subject}
+                    </h2>
+
+                    <p class="success">
+                        Your smart study plan is ready!
+                    </p>
+
+                    <p class="plan-info">
+
+                        <strong>
+                            Total Study Time:
+                        </strong>
+
+                        ${hours} hours
+
+                        <br>
+
+                        <strong>
+                            Total Topics:
+                        </strong>
+
+                        ${topics.length}
+
+                    </p>
+
+
+                    <h2>
+                        ✨ SMART TIMETABLE
+                    </h2>
+
+
+                    ${sessionsHTML}
+
+
+                    <button onclick="startStudy()">
+                        ← CREATE ANOTHER PLAN
+                    </button>
+
+                </div>
+
+
+                <div class="footer">
+                    BUILD • ADAPT • LEARN • GROW
+                </div>
+
+            `;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
